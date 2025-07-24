@@ -28,7 +28,7 @@ const DashboardSidebar = () => {
     <Sidebar
       side="right"
       collapsible="offcanvas"
-      className="border-0 relative border-none bg-transparent transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+      className="border-0 border-none bg-transparent transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
     >
       <button
         onClick={() => {
@@ -38,7 +38,7 @@ const DashboardSidebar = () => {
       >
         <X />
       </button>
-      <SidebarContent className="px-4 py-4 bg-white dark:bg-neutral-950 my-4 mt-15 rounded-l-2xl space-y-6">
+      <SidebarContent className="px-4 py-4 border border-neutral-800 bg-white dark:bg-neutral-950 my-4 mt-15 rounded-l-2xl space-y-6">
         <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-3">
           <Zap className="text-yellow-300" /> Crypto Latency Dashboard
         </h2>
