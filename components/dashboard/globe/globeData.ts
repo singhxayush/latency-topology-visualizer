@@ -41,8 +41,7 @@ export interface LatencyConnection {
   to: string;
   latencyMs: number;
 }
-
-// --- MOCK DATA (as provided) ---
+// --- EXCHANGES (added Kraken and KuCoin) ---
 export const exchanges: Exchange[] = [
   {
     name: "Binance",
@@ -72,8 +71,23 @@ export const exchanges: Exchange[] = [
     location: "Dublin, Ireland",
     coords: [53.3498, -6.2603],
   },
+  {
+    name: "Kraken",
+    cloudProvider: "GCP",
+    regionCode: "us-west1",
+    location: "San Francisco, USA",
+    coords: [37.7749, -122.4194],
+  },
+  {
+    name: "KuCoin",
+    cloudProvider: "Azure",
+    regionCode: "southeastasia",
+    location: "Jakarta, Indonesia",
+    coords: [-6.2088, 106.8456],
+  },
 ];
 
+// --- BOTS (added Bot 4 and Bot 5) ---
 export const bots: Bot[] = [
   {
     name: "Bot 1",
@@ -96,21 +110,63 @@ export const bots: Bot[] = [
     location: "Sydney, Australia",
     coords: [-33.8688, 151.2093],
   },
+  {
+    name: "Bot 4",
+    cloudProvider: "Azure",
+    regionCode: "northeurope",
+    location: "Stockholm, Sweden",
+    coords: [59.3293, 18.0686],
+  },
+  {
+    name: "Bot 5",
+    cloudProvider: "GCP",
+    regionCode: "southamerica-east1",
+    location: "São Paulo, Brazil",
+    coords: [-23.5505, -46.6333],
+  },
 ];
 
+// --- SIMULATED LATENCY (complete matrix with new bots + exchanges) ---
 export const simulatedLatencyMatrix: LatencyConnection[] = [
+  // Bot 1
   {from: "Bot 1", to: "Binance", latencyMs: 65},
   {from: "Bot 1", to: "Bybit", latencyMs: 148},
   {from: "Bot 1", to: "OKX", latencyMs: 95},
   {from: "Bot 1", to: "Deribit", latencyMs: 130},
+  {from: "Bot 1", to: "Kraken", latencyMs: 250},
+  {from: "Bot 1", to: "KuCoin", latencyMs: 55},
+
+  // Bot 2
   {from: "Bot 2", to: "Binance", latencyMs: 195},
   {from: "Bot 2", to: "Bybit", latencyMs: 85},
   {from: "Bot 2", to: "OKX", latencyMs: 130},
   {from: "Bot 2", to: "Deribit", latencyMs: 75},
+  {from: "Bot 2", to: "Kraken", latencyMs: 65},
+  {from: "Bot 2", to: "KuCoin", latencyMs: 240},
+
+  // Bot 3
   {from: "Bot 3", to: "Binance", latencyMs: 80},
   {from: "Bot 3", to: "Bybit", latencyMs: 180},
   {from: "Bot 3", to: "OKX", latencyMs: 110},
   {from: "Bot 3", to: "Deribit", latencyMs: 210},
+  {from: "Bot 3", to: "Kraken", latencyMs: 270},
+  {from: "Bot 3", to: "KuCoin", latencyMs: 90},
+
+  // Bot 4 (Sweden)
+  {from: "Bot 4", to: "Binance", latencyMs: 190},
+  {from: "Bot 4", to: "Bybit", latencyMs: 40},
+  {from: "Bot 4", to: "OKX", latencyMs: 220},
+  {from: "Bot 4", to: "Deribit", latencyMs: 60},
+  {from: "Bot 4", to: "Kraken", latencyMs: 140},
+  {from: "Bot 4", to: "KuCoin", latencyMs: 200},
+
+  // Bot 5 (Brazil)
+  {from: "Bot 5", to: "Binance", latencyMs: 290},
+  {from: "Bot 5", to: "Bybit", latencyMs: 320},
+  {from: "Bot 5", to: "OKX", latencyMs: 350},
+  {from: "Bot 5", to: "Deribit", latencyMs: 260},
+  {from: "Bot 5", to: "Kraken", latencyMs: 90},
+  {from: "Bot 5", to: "KuCoin", latencyMs: 410},
 ];
 
 export const PROVIDERS = ["AWS", "GCP", "Azure"];

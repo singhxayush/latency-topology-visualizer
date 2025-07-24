@@ -22,6 +22,7 @@ import {
   exchangeAtom,
   providerAtom,
 } from "../../atoms/globerFilterAtoms";
+import {Button} from "../ui/button";
 
 const DashboardSidebar = () => {
   return (
@@ -34,6 +35,14 @@ const DashboardSidebar = () => {
         <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-3">
           <Zap className="text-yellow-300" /> Crypto Latency Dashboard
         </h2>
+        <Button
+          className="cursor-pointer bg-zinc-900 text-white hover:bg-zinc-800"
+          onClick={() => {
+            
+          }}
+        >
+          Reset Filter
+        </Button>
         <SidebarProviderFilter />
         <SidebarExhangeServerFilter />
         <SidebarBotServerFilter />
@@ -196,7 +205,7 @@ const SidebarBotServerFilter = () => {
       <SidebarGroupContent>
         <div className="flex flex-col space-y-3">
           <h3 className="flex items-center gap-2 font-semibold text-md text-neutral-200">
-            <BotIcon /> Filter by Exchange Server
+            <BotIcon /> Filter by Trading Bot
           </h3>
           {bots.map((bot) => (
             <BotServerCheckbox
