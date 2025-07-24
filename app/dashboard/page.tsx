@@ -1,8 +1,8 @@
-import Dashboard from "@/components/dashboard/dashboard";
+import Dashboard from "@/components/dashboard";
 
 const page = () => {
   return (
-    <div className="w-full h-fit rounded-2xl px-4 py-2">
+    <div className="w-full h-fit rounded-2xl md:px-4 md:py-2">
       <Dashboard />
     </div>
   );

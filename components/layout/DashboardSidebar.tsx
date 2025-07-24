@@ -1,13 +1,15 @@
 "use client";
 
 import React from "react";
+import {useAtom} from "jotai";
+import {Bot as BotIcon, Check, Cloud, Server, X, Zap} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
+  useSidebar,
 } from "@/components/ui/sidebar";
-import {Bot as BotIcon, Check, Cloud, Server, Zap} from "lucide-react";
 import {
   Bot,
   bots,
@@ -15,31 +17,34 @@ import {
   exchanges,
   PROVIDER_COLORS,
   PROVIDERS,
-} from "../dashboard/globe/globeData";
-import {useAtom} from "jotai";
-import {
-  botAtom,
-  exchangeAtom,
-  providerAtom,
-} from "../../atoms/globerFilterAtoms";
-import {Button} from "../ui/button";
+} from "@/components/dashboard/globe/globeData";
+import {Button} from "@/components/ui/button";
+
+import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
 
 const DashboardSidebar = () => {
+  const sidebar = useSidebar();
   return (
     <Sidebar
       side="right"
       collapsible="offcanvas"
-      className="border-0 border-transparent bg-transparent transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+      className="border-0 relative border-none bg-transparent transform transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
     >
+      <button
+        onClick={() => {
+          sidebar.setOpenMobile(false);
+        }}
+        className="absolute md:hidden top-15 -left-10"
+      >
+        <X />
+      </button>
       <SidebarContent className="px-4 py-4 bg-white dark:bg-neutral-950 my-4 mt-15 rounded-l-2xl space-y-6">
         <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-3">
           <Zap className="text-yellow-300" /> Crypto Latency Dashboard
         </h2>
         <Button
           className="cursor-pointer bg-zinc-900 text-white hover:bg-zinc-800"
-          onClick={() => {
-            
-          }}
+          onClick={() => {}}
         >
           Reset Filter
         </Button>

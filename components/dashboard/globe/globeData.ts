@@ -133,7 +133,6 @@ export const simulatedLatencyMatrix: LatencyConnection[] = [
   {from: "Bot 1", to: "Bybit", latencyMs: 148},
   {from: "Bot 1", to: "OKX", latencyMs: 95},
   {from: "Bot 1", to: "Deribit", latencyMs: 130},
-  {from: "Bot 1", to: "Kraken", latencyMs: 250},
   {from: "Bot 1", to: "KuCoin", latencyMs: 55},
 
   // Bot 2
@@ -142,31 +141,20 @@ export const simulatedLatencyMatrix: LatencyConnection[] = [
   {from: "Bot 2", to: "OKX", latencyMs: 130},
   {from: "Bot 2", to: "Deribit", latencyMs: 75},
   {from: "Bot 2", to: "Kraken", latencyMs: 65},
-  {from: "Bot 2", to: "KuCoin", latencyMs: 240},
 
   // Bot 3
   {from: "Bot 3", to: "Binance", latencyMs: 80},
-  {from: "Bot 3", to: "Bybit", latencyMs: 180},
-  {from: "Bot 3", to: "OKX", latencyMs: 110},
-  {from: "Bot 3", to: "Deribit", latencyMs: 210},
-  {from: "Bot 3", to: "Kraken", latencyMs: 270},
   {from: "Bot 3", to: "KuCoin", latencyMs: 90},
 
   // Bot 4 (Sweden)
   {from: "Bot 4", to: "Binance", latencyMs: 190},
   {from: "Bot 4", to: "Bybit", latencyMs: 40},
-  {from: "Bot 4", to: "OKX", latencyMs: 220},
-  {from: "Bot 4", to: "Deribit", latencyMs: 60},
   {from: "Bot 4", to: "Kraken", latencyMs: 140},
-  {from: "Bot 4", to: "KuCoin", latencyMs: 200},
 
   // Bot 5 (Brazil)
   {from: "Bot 5", to: "Binance", latencyMs: 290},
   {from: "Bot 5", to: "Bybit", latencyMs: 320},
-  {from: "Bot 5", to: "OKX", latencyMs: 350},
-  {from: "Bot 5", to: "Deribit", latencyMs: 260},
   {from: "Bot 5", to: "Kraken", latencyMs: 90},
-  {from: "Bot 5", to: "KuCoin", latencyMs: 410},
 ];
 
 export const PROVIDERS = ["AWS", "GCP", "Azure"];

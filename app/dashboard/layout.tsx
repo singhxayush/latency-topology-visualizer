@@ -12,9 +12,7 @@ export default function DashboardLayout({
       <div className="max-h-screen flex w-full bg-white dark:bg-zinc-900">
         <main className="flex-1 flex flex-col overflow-hidden">
           <AppNav />
-          <div className="flex-1 overflow-auto scrollbar-thin mt-10 py-4">
-            {children}
-          </div>
+          <div className="flex-1 overflow-hidden mt-10">{children}</div>
         </main>
         <DashboardSidebar />
       </div>

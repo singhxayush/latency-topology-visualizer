@@ -2,7 +2,7 @@ import React from "react";
 
 const LatencyStatsPanel = () => {
   return (
-    <div className="relative w-full h-[calc(100vh-86px)] bg-black text-white font-sans flex items-center justify-center">
+    <div className="relative w-full h-[calc(100vh-86px)] text-white font-sans flex items-center justify-center">
       LatencyStatsPanel
     </div>
   );
