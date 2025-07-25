@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, {useMemo} from "react";
+import React, {useEffect, useMemo, useRef} from "react";
 import Globe from "react-globe.gl";
 import {countries} from "@/components/dashboard/globe/countries";
 import {
@@ -18,6 +18,7 @@ import {useAtom} from "jotai";
 import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
 import Legend from "./globe-legend";
 import {realtimeLatencyDataAtom} from "@/atoms/dashboardAtoms";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 // MAIN APP COMPONENT
 const ThreeGlobe = () => {
@@ -25,6 +26,7 @@ const ThreeGlobe = () => {
   const [selectedExchange] = useAtom(exchangeAtom);
   const [selectedBot] = useAtom(botAtom);
   const [simulatedLatencyMatrix] = useAtom(realtimeLatencyDataAtom);
+  const globeRef = useRef<any>(null);
 
   const {points, arcs} = useMemo(() => {
     const allPointsMap = new Map<string, Point>();
@@ -85,6 +87,15 @@ const ThreeGlobe = () => {
     simulatedLatencyMatrix,
   ]);
 
+  const isMobile = useIsMobile()
+
+  useEffect(() => {
+    if (globeRef.current) {
+      globeRef.current.controls().autoRotate = true;
+      globeRef.current.pointOfView({altitude: isMobile ? 3.5 : 2}, 1000); // lower = zoom in
+    }
+  }, [isMobile]);
+
   return (
     <div className="relative w-full text-white flex items-center justify-center">
       <div className="absolute w-full sm:w-[10rem] left-0 p-1 bottom-12 md:top-1 md:-left-4 z-10">
@@ -93,7 +104,9 @@ const ThreeGlobe = () => {
 
       <div>
         <Globe
+          ref={globeRef}
           backgroundColor="rgba(19, 19, 19, 0)"
+          // globeImageUrl={"/globe2.png"}
           // Points (Bots & Exchanges)
           pointsData={points}
           pointLat="lat"

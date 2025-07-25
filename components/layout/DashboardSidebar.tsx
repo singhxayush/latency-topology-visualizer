@@ -1,8 +1,17 @@
 "use client";
 
 import React from "react";
-import {useAtom} from "jotai";
-import {Bot as BotIcon, Check, Cloud, Server, X, Zap} from "lucide-react";
+import {useAtom, useSetAtom} from "jotai";
+import {
+  Bot as BotIcon,
+  Check,
+  Cloud,
+  RotateCcw,
+  Server,
+  X,
+  XCircle,
+  Zap,
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -24,6 +33,22 @@ import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
 
 const DashboardSidebar = () => {
   const sidebar = useSidebar();
+  const setProvider = useSetAtom(providerAtom);
+  const setExchange = useSetAtom(exchangeAtom);
+  const setBot = useSetAtom(botAtom);
+
+  const resetFilters = () => {
+    setProvider(PROVIDERS);
+    setExchange(exchanges);
+    setBot(bots);
+  };
+
+  const clearAllFilters = () => {
+    setProvider([]);
+    setExchange([]);
+    setBot([]);
+  };
+
   return (
     <Sidebar
       side="right"
@@ -39,15 +64,31 @@ const DashboardSidebar = () => {
         <X />
       </button>
       <SidebarContent className="px-4 py-4 border border-neutral-800 bg-white dark:bg-neutral-950 my-4 mt-15 rounded-l-2xl space-y-6">
-        <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-3">
-          <Zap className="text-yellow-300" /> Crypto Latency Dashboard
+        <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-0">
+          <Zap className="text-yellow-300" />
+          <span className="text-zinc-800 dark:text-white">
+            Crypto Latency Dashboard
+          </span>
         </h2>
-        <Button
-          className="cursor-pointer bg-zinc-900 text-white hover:bg-zinc-800"
-          onClick={() => {}}
-        >
-          Reset Filter
-        </Button>
+
+        <div className="flex flex-col md:flex-row justify-center gap-2 w-full">
+          <button
+            className="bg-zinc-800 flex items-center py-2 px-4 text-nowrap text-xs cursor-pointer rounded-md w-full text-white"
+            onClick={resetFilters}
+          >
+            <RotateCcw className="mr-2 h-4 w-4" />
+            Reset Filters
+          </button>
+
+          <button
+            className="bg-zinc-800 flex items-center py-2 px-4 text-nowrap text-xs cursor-pointer rounded-md w-full text-white"
+            onClick={clearAllFilters}
+          >
+            <XCircle className="mr-2 h-4 w-4" />
+            Clear All
+          </button>
+        </div>
+
         <SidebarProviderFilter />
         <SidebarExhangeServerFilter />
         <SidebarBotServerFilter />
@@ -71,7 +112,7 @@ const SidebarProviderFilter = () => {
     <SidebarGroup className="p-0">
       <SidebarGroupContent>
         <div className="flex flex-col space-y-3">
-          <h3 className="flex items-center gap-2 font-semibold text-md text-neutral-200">
+          <h3 className="flex items-center gap-2 font-semibold text-md text-zinc-800 dark:text-white">
             <Cloud /> Filter by Provider
           </h3>
           {PROVIDERS.map((provider) => (
@@ -134,7 +175,7 @@ const SidebarExhangeServerFilter = () => {
     <SidebarGroup className="p-0">
       <SidebarGroupContent>
         <div className="flex flex-col space-y-3">
-          <h3 className="flex items-center gap-2 font-semibold text-md text-neutral-200">
+          <h3 className="flex items-center gap-2 font-semibold text-md text-zinc-800 dark:text-white">
             <Server /> Filter by Exchange Server
           </h3>
           {exchanges.map((exchange) => (
@@ -209,7 +250,7 @@ const SidebarBotServerFilter = () => {
     <SidebarGroup className="p-0">
       <SidebarGroupContent>
         <div className="flex flex-col space-y-3">
-          <h3 className="flex items-center gap-2 font-semibold text-md text-neutral-200">
+          <h3 className="flex items-center gap-2 font-semibold text-md text-zinc-800 dark:text-white">
             <BotIcon /> Filter by Trading Bot
           </h3>
           {bots.map((bot) => (

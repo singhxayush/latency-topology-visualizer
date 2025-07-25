@@ -7,7 +7,7 @@ import {dashboardViewAtom} from "@/atoms/dashboardAtoms";
 const ThreeGlobe = dynamic(() => import("@/components/dashboard/globe"), {
   ssr: false,
   loading: () => (
-    <div className="text-white min-h-[calc(100vh-82px)] flex items-center justify-center bg-neutral-900 z-20">
+    <div className="text-zinc-800 dark:text-white min-h-[calc(100vh-82px)] flex items-center justify-center z-20">
       Loading Globe
     </div>
   ),
@@ -18,7 +18,7 @@ const LatencyHistorySimulation = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="text-white min-h-[calc(100vh-82px)] flex items-center justify-center bg-neutral-900 z-20">
+      <div className="text-zinc-800 dark:text-white min-h-[calc(100vh-82px)] flex items-center justify-center z-20">
         Loading Graph
       </div>
     ),
