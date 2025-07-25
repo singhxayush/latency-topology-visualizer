@@ -63,8 +63,7 @@ const DashboardSidebar = () => {
         <X />
       </button>
       <SidebarContent className="px-4 py-4 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-zinc-950 my-4 mt-15 rounded-l-2xl space-y-6">
-        <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-0">
-          <Zap className="text-yellow-300" />
+        <h2 className="text-md font-bold text-white pb-2 mb-0">
           <span className="text-zinc-800 dark:text-white">
             Crypto Latency Dashboard
           </span>
@@ -112,7 +111,7 @@ const SidebarProviderFilter = () => {
       <SidebarGroupContent>
         <div className="flex flex-col space-y-3">
           <h3 className="flex items-center gap-2 font-semibold text-md text-zinc-800 dark:text-white">
-            <Cloud /> Filter by Provider
+            <Cloud className="dark:fill-accent-foreground" /> Filter by Provider
           </h3>
           {PROVIDERS.map((provider) => (
             <ProviderCheckbox

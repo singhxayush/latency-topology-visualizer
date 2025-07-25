@@ -1,5 +1,5 @@
 import React from "react";
-import {Clock, TrendingDown, TrendingUp} from "lucide-react";
+import {Clock, TrendingDown, TrendingUp, Zap} from "lucide-react";
 
 type StatsUiProps = {
   stats: {
@@ -13,11 +13,11 @@ const StatsUi = ({stats}: StatsUiProps) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
       <StatCard
-        icon={<Clock />}
-        title="Average Latency"
+        icon={<Zap className="fill-yellow-400" />}
+        title="Current Latency"
         value={stats.avg.toString()}
         unit="ms"
-        colorClass="text-lime-400"
+        colorClass="text-yellow-400"
       />
       <StatCard
         icon={<Clock />}
