@@ -6,7 +6,7 @@ import {atom} from "jotai";
 
 export type DashboardView = "globe" | "analytics";
 
-export const dashboardViewAtom = atom<DashboardView>("analytics");
+export const dashboardViewAtom = atom<DashboardView>("globe");
 
 export const historicalLatencyAtom = atom<HistoricalDataPoint[]>([]);
 

@@ -10,7 +10,7 @@ const AppNav = () => {
   const isSideBarOpen = state === "expanded";
 
   return (
-    <nav className="bg-white dark:bg-gradient-to-b shadow dark:from-neutral-900 m-0 dark:to-neutral-950 absolute top-0 left-0 w-full z-50">
+    <nav className="bg-white dark:bg-gradient-to-b shadow dark:from-neutral-900 m-0 dark:to-neutral-950 fixed top-0 left-0 w-full z-50">
       <div className="flex justify-between md:items-center border-b border border-zinc-200 dark:border-zinc-800 w-full items-center h-12 py-3 gap-4 px-1 md:px-6 sticky top-0">
         {/* <span className="flex gap-2">
           <span>Dashboard /</span>

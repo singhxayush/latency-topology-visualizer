@@ -87,7 +87,7 @@ const ThreeGlobe = () => {
 
   return (
     <div className="relative w-full text-white flex items-center justify-center">
-      <div className="absolute w-full sm:w-[10rem] left-0 p-1 top-1 md:-left-4 z-10">
+      <div className="absolute w-full sm:w-[10rem] left-0 p-1 bottom-12 md:top-1 md:-left-4 z-10">
         <Legend />
       </div>
 
