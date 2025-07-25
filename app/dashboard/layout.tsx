@@ -1,8 +1,8 @@
 "use client";
 
 import {dashboardViewAtom} from "@/atoms/dashboardAtoms";
-import AppNav from "@/components/layout/DashboardNav";
-import DashboardSidebar from "@/components/layout/DashboardSidebar";
+import AppNav from "@/components/layouts/DashboardNav";
+import DashboardSidebar from "@/components/layouts/DashboardSidebar";
 import {SidebarProvider} from "@/components/ui/sidebar";
 import {cn} from "@/lib/utils";
 import {useAtom} from "jotai";
