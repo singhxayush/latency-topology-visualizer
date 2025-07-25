@@ -5,7 +5,7 @@ import {
   Exchange,
   exchanges,
   PROVIDERS,
-} from "@/components/dashboard/globe/globeData";
+} from "@/components/dashboard/globe/globe-data";
 
 export const providerAtom = atom<string[]>(PROVIDERS);
 

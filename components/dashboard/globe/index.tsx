@@ -6,23 +6,25 @@ import Globe from "react-globe.gl";
 import {countries} from "@/components/dashboard/globe/countries";
 import {
   PROVIDER_COLORS,
-  simulatedLatencyMatrix,
+  // simulatedLatencyMatrix,
   type Arc,
   type Point,
-} from "@/components/dashboard/globe/globeData";
+} from "@/components/dashboard/globe/globe-data";
 import {
   getArcAnimateDelay,
   getLatencyColor,
-} from "@/components/dashboard/globe/globeUtils";
+} from "@/components/dashboard/globe/globe-utils";
 import {useAtom} from "jotai";
 import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
-import Legend from "./globe/globeLegend";
+import Legend from "./globe-legend";
+import {realtimeLatencyDataAtom} from "@/atoms/dashboardAtoms";
 
-// --- MAIN APP COMPONENT ---
+// MAIN APP COMPONENT
 const ThreeGlobe = () => {
   const [selectedProviders] = useAtom(providerAtom);
   const [selectedExchange] = useAtom(exchangeAtom);
   const [selectedBot] = useAtom(botAtom);
+  const [simulatedLatencyMatrix] = useAtom(realtimeLatencyDataAtom);
 
   const {points, arcs} = useMemo(() => {
     const allPointsMap = new Map<string, Point>();
@@ -76,11 +78,16 @@ const ThreeGlobe = () => {
       );
 
     return {points: filteredPoints, arcs: visibleArcs};
-  }, [selectedProviders, selectedExchange, selectedBot]);
+  }, [
+    selectedProviders,
+    selectedExchange,
+    selectedBot,
+    simulatedLatencyMatrix,
+  ]);
 
   return (
-    <div className="relative w-full max-h-[calc(100vh-82px)] text-white font-sans flex items-center justify-center">
-      <div className="absolute bottom-0 left-0 z-10">
+    <div className="relative w-full text-white flex items-center justify-center">
+      <div className="absolute w-full sm:w-[10rem] left-0 p-1 top-1 md:-left-4 z-10">
         <Legend />
       </div>
 

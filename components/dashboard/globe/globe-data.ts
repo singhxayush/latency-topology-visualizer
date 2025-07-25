@@ -1,4 +1,4 @@
-// --- TYPE DEFINITIONS ---
+// TYPE DEFINITIONS
 export interface Point {
   name: string;
   type: "bot" | "exchange";
@@ -36,12 +36,20 @@ export interface Bot {
   coords: [number, number];
 }
 
-export interface LatencyConnection {
+// export interface LatencyConnection {
+//   from: string;
+//   to: string;
+//   latencyMs: number;
+// }
+
+export interface HistoricalDataPoint {
+  timestamp?: number;
   from: string;
   to: string;
   latencyMs: number;
 }
-// --- EXCHANGES (added Kraken and KuCoin) ---
+
+// EXCHANGE SERVERS
 export const exchanges: Exchange[] = [
   {
     name: "Binance",
@@ -87,7 +95,7 @@ export const exchanges: Exchange[] = [
   },
 ];
 
-// --- BOTS (added Bot 4 and Bot 5) ---
+// BOTS
 export const bots: Bot[] = [
   {
     name: "Bot 1",
@@ -126,8 +134,8 @@ export const bots: Bot[] = [
   },
 ];
 
-// --- SIMULATED LATENCY (complete matrix with new bots + exchanges) ---
-export const simulatedLatencyMatrix: LatencyConnection[] = [
+// SIMULATED LATENCY
+export const simulatedLatencyMatrix: HistoricalDataPoint[] = [
   // Bot 1
   {from: "Bot 1", to: "Binance", latencyMs: 65},
   {from: "Bot 1", to: "Bybit", latencyMs: 148},
@@ -146,12 +154,12 @@ export const simulatedLatencyMatrix: LatencyConnection[] = [
   {from: "Bot 3", to: "Binance", latencyMs: 80},
   {from: "Bot 3", to: "KuCoin", latencyMs: 90},
 
-  // Bot 4 (Sweden)
+  // Bot 4
   {from: "Bot 4", to: "Binance", latencyMs: 190},
   {from: "Bot 4", to: "Bybit", latencyMs: 40},
   {from: "Bot 4", to: "Kraken", latencyMs: 140},
 
-  // Bot 5 (Brazil)
+  // Bot 5
   {from: "Bot 5", to: "Binance", latencyMs: 290},
   {from: "Bot 5", to: "Bybit", latencyMs: 320},
   {from: "Bot 5", to: "Kraken", latencyMs: 90},

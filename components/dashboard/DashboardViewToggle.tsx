@@ -1,7 +1,7 @@
 "use client";
 
 import {useAtom} from "jotai";
-import {dashboardViewAtom} from "@/atoms/dashboardViewAtom";
+import {dashboardViewAtom} from "@/atoms/dashboardAtoms";
 import {ChevronDown, Globe, TrendingUp} from "lucide-react";
 
 import {
@@ -17,8 +17,8 @@ const DashboardViewToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="text-sm p-1 border-none cursor-pointer flex items-center gap-1 justify-center hover:underline">
-          {view === "globe" ? "Analytics View" : "Globe View"}
+        <button className="text-sm p-1 border-none cursor-pointer flex items-center gap-1 justify-center">
+          {view === "globe" ? "Globe View" : "Analytics View"}
           <ChevronDown className="size-4.5" />
         </button>
       </DropdownMenuTrigger>
@@ -32,7 +32,7 @@ const DashboardViewToggle = () => {
           Analytics View
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenu>
+    </DropdownMenu> 
   );
 };
 

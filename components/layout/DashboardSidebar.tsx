@@ -17,7 +17,7 @@ import {
   exchanges,
   PROVIDER_COLORS,
   PROVIDERS,
-} from "@/components/dashboard/globe/globeData";
+} from "@/components/dashboard/globe/globe-data";
 import {Button} from "@/components/ui/button";
 
 import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
