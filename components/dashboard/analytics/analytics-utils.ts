@@ -43,7 +43,7 @@ export const exportToCsv = (data: HistoricalDataPoint[], filename: string) => {
   const rows = data
     .map(
       (d) =>
-        `${d.timestamp},${new Date(d.timestamp).toISOString()},${d.from},${
+        `${d.timestamp},${new Date(d.timestamp!).toISOString()},${d.from},${
           d.to
         },${d.latencyMs}`
     )
