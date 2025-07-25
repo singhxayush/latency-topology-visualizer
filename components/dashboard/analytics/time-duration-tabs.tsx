@@ -12,10 +12,10 @@ export const Tabs = ({
       <button
         key={item.label}
         onClick={() => setActive(item.label)}
-        className={`px-4 py-1.5 text-sm font-medium rounded-md transition-colors duration-200 ${
+        className={`px-4 py-1.5 text-sm cursor-pointer font-medium rounded-md transition-colors duration-200 ${
           active === item.label
-            ? "bg-lime-600 text-white"
-            : "text-zinc-300 hover:bg-zinc-700"
+            ? "bg-lime-600 text-white dark:text-zinc-200"
+            : "text-muted-foreground hover:bg-zinc-500/20"
         }`}
       >
         {item.label}

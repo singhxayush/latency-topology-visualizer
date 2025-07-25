@@ -27,7 +27,6 @@ import {
   PROVIDER_COLORS,
   PROVIDERS,
 } from "@/components/dashboard/globe/globe-data";
-import {Button} from "@/components/ui/button";
 
 import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
 
@@ -63,7 +62,7 @@ const DashboardSidebar = () => {
       >
         <X />
       </button>
-      <SidebarContent className="px-4 py-4 border border-neutral-800 bg-white dark:bg-neutral-950 my-4 mt-15 rounded-l-2xl space-y-6">
+      <SidebarContent className="px-4 py-4 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-zinc-950 my-4 mt-15 rounded-l-2xl space-y-6">
         <h2 className="flex items-center gap-2 text-md font-bold text-white pb-2 mb-0">
           <Zap className="text-yellow-300" />
           <span className="text-zinc-800 dark:text-white">
@@ -71,9 +70,9 @@ const DashboardSidebar = () => {
           </span>
         </h2>
 
-        <div className="flex flex-col md:flex-row justify-center gap-2 w-full">
+        <div className="flex justify-center gap-2 w-full">
           <button
-            className="bg-zinc-800 flex items-center py-2 px-4 text-nowrap text-xs cursor-pointer rounded-md w-full text-white"
+            className="bg-zinc-800 flex items-center justify-center py-2 px-4 text-nowrap text-xs cursor-pointer rounded-md w-full text-white"
             onClick={resetFilters}
           >
             <RotateCcw className="mr-2 h-4 w-4" />
@@ -81,7 +80,7 @@ const DashboardSidebar = () => {
           </button>
 
           <button
-            className="bg-zinc-800 flex items-center py-2 px-4 text-nowrap text-xs cursor-pointer rounded-md w-full text-white"
+            className="bg-zinc-800 flex items-center justify-center py-2 px-4 text-nowrap text-xs cursor-pointer rounded-md w-full text-white"
             onClick={clearAllFilters}
           >
             <XCircle className="mr-2 h-4 w-4" />
@@ -148,11 +147,13 @@ const ProviderCheckbox = ({
     <span
       className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all duration-200 ${
         selectedProviders.includes(provider)
-          ? "border-neutral-700 bg-neutral-900"
+          ? "border-neutral-700 dark:bg-neutral-900"
           : "border-neutral-500 bg-neutral-700"
       }`}
     >
-      {selectedProviders.includes(provider) && <Check className="size-4" />}
+      {selectedProviders.includes(provider) && (
+        <Check className="size-4 stroke-3 text-neutral-700 dark:text-white" />
+      )}
     </span>
     <span style={{color: PROVIDER_COLORS[provider]}} className="font-bold">
       {provider}
@@ -291,7 +292,7 @@ const BotServerCheckbox = ({
       }`}
     >
       {selectedBot.includes(bot) && (
-        <Check className="size-4 text-neutral-800 stroke-3" />
+        <Check className="size-4 stroke-3 text-neutral-800" />
       )}
     </span>
 

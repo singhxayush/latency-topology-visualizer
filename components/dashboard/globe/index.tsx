@@ -10,15 +10,19 @@ import {
   type Arc,
   type Point,
 } from "@/components/dashboard/globe/globe-data";
-import {
-  getArcAnimateDelay,
-  getLatencyColor,
-} from "@/components/dashboard/globe/globe-utils";
+import {getArcAnimateDelay, getLatencyColor} from "@/lib/globe-utils";
 import {useAtom} from "jotai";
-import {botAtom, exchangeAtom, providerAtom} from "@/atoms/globerFilterAtoms";
+import {
+  botAtom,
+  exchangeAtom,
+  globeAutoRotateAtom,
+  providerAtom,
+} from "@/atoms/globerFilterAtoms";
 import Legend from "./globe-legend";
 import {realtimeLatencyDataAtom} from "@/atoms/dashboardAtoms";
-import { useIsMobile } from "@/hooks/use-mobile";
+import {useIsMobile} from "@/hooks/use-mobile";
+import {Checkbox} from "@radix-ui/react-checkbox";
+import {cn} from "@/lib/utils";
 
 // MAIN APP COMPONENT
 const ThreeGlobe = () => {
@@ -27,6 +31,8 @@ const ThreeGlobe = () => {
   const [selectedBot] = useAtom(botAtom);
   const [simulatedLatencyMatrix] = useAtom(realtimeLatencyDataAtom);
   const globeRef = useRef<any>(null);
+
+  const [autoRotate, setAutoRotate] = useAtom(globeAutoRotateAtom);
 
   const {points, arcs} = useMemo(() => {
     const allPointsMap = new Map<string, Point>();
@@ -87,14 +93,14 @@ const ThreeGlobe = () => {
     simulatedLatencyMatrix,
   ]);
 
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (globeRef.current) {
-      globeRef.current.controls().autoRotate = true;
+      globeRef.current.controls().autoRotate = autoRotate;
       globeRef.current.pointOfView({altitude: isMobile ? 3.5 : 2}, 1000); // lower = zoom in
     }
-  }, [isMobile]);
+  }, [isMobile, autoRotate]);
 
   return (
     <div className="relative w-full text-white flex items-center justify-center">
@@ -102,11 +108,34 @@ const ThreeGlobe = () => {
         <Legend />
       </div>
 
+      <div className="absolute z-50 right-0 top-2">
+        <label
+          htmlFor="auto-rotate"
+          className="flex items-center gap-3 cursor-pointer group"
+        >
+          <span className="text-sm text-neutral-700 dark:text-neutral-300 group-hover:text-cyan-400 transition-colors">
+            AUTO ROTATE
+          </span>
+          <Checkbox
+            id="auto-rotate"
+            checked={autoRotate}
+            aria-label="Toggle auto rotate"
+            onCheckedChange={(checked) => setAutoRotate(!!checked)}
+            className={cn(
+              "cursor-pointer border-2 size-4 rounded transition-colors",
+              "border-neutral-500 dark:border-neutral-700",
+              autoRotate && "bg-cyan-500 border-cyan-400",
+              !autoRotate && "bg-white dark:bg-neutral-950",
+              "text-neutral-900 dark:text-white"
+            )}
+          />
+        </label>
+      </div>
+
       <div>
         <Globe
           ref={globeRef}
           backgroundColor="rgba(19, 19, 19, 0)"
-          // globeImageUrl={"/globe2.png"}
           // Points (Bots & Exchanges)
           pointsData={points}
           pointLat="lat"
@@ -162,7 +191,6 @@ const ThreeGlobe = () => {
                 </div>
               `}
           arcDashInitialGap={1}
-          // arcAltitudeAutoScale={0.5}
           // Poligon Spread
           hexPolygonsData={countries.features}
           hexPolygonResolution={3}

@@ -17,12 +17,12 @@ const DashboardViewToggle = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="text-sm p-1 border-none cursor-pointer flex items-center gap-1 justify-center">
+        <button className="text-xs md:text-sm text-nowrap p-1 border-none cursor-pointer flex items-center gap-1 justify-center">
           {view === "globe" ? "Globe View" : "Analytics View"}
           <ChevronDown className="size-4.5" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="center" className="w-48 mt-2">
         <DropdownMenuItem onClick={() => setView("globe")}>
           <Globe className="mr-2 size-4 text-cyan-400" />
           Globe View

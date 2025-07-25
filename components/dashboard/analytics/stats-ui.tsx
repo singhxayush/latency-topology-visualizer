@@ -65,9 +65,9 @@ const StatCard = ({
     </div>
     <div>
       <p className="text-sm text-zinc-400">{title}</p>
-      <p className="text-xl font-bold text-white">
+      <p className="text-xl font-bold text-neutral-600 dark:text-zinc-200">
         {value}
-        <span className="text-base font-normal text-zinc-300">{unit}</span>
+        <span className="text-base font-normal text-zinc-300 ml-1">{unit}</span>
       </p>
     </div>
   </div>

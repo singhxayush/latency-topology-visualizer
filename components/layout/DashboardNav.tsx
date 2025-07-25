@@ -1,28 +1,60 @@
 "use client";
 
+import {usePathname} from "next/navigation";
+import {Home} from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import DashboardViewToggle from "@/components/dashboard/DashboardViewToggle";
-import {SidebarTrigger, useSidebar} from "@/components/ui/sidebar";
+import {SidebarTrigger} from "@/components/ui/sidebar";
 import {ModeToggle} from "@/components/theme-toggle";
 import {cn} from "@/lib/utils";
+import Link from "next/link";
 
 const AppNav = () => {
-  const {state} = useSidebar();
-  const isSideBarOpen = state === "expanded";
+  const pathname = usePathname();
+  const isDashboard = pathname.startsWith("/dashboard");
 
   return (
-    <nav className="bg-white dark:bg-gradient-to-b shadow dark:from-neutral-900 m-0 dark:to-neutral-950 fixed top-0 left-0 w-full z-50">
-      <div className="flex justify-between md:items-center border-b border border-zinc-200 dark:border-zinc-800 w-full items-center h-12 py-3 gap-4 px-1 md:px-6 sticky top-0">
-        {/* <span className="flex gap-2">
-          <span>Dashboard /</span>
-        </span> */}
-          <DashboardViewToggle />
+    <nav className="bg-white dark:bg-gradient-to-b dark:from-neutral-900 dark:to-neutral-950 shadow fixed top-0 left-0 w-full z-50">
+      <div className="flex justify-between items-center border-b border-zinc-200 dark:border-zinc-800 h-12 px-3 md:px-6">
+        {/* Breadcrumb */}
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="flex items-center gap-1">
+                  <Home className="size-4" />
+                  <span className="hidden md:inline">Home</span>
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
 
-        <span className="flex gap-4 items-center">
+            {isDashboard && (
+              <>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
+                  <BreadcrumbLink asChild>
+                    <Link href="/dashboard">Dashboard</Link>
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+              </>
+            )}
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        {/* Right controls */}
+        <div className="flex gap-2 items-center">
+          <DashboardViewToggle />
           <ModeToggle />
           <SidebarTrigger
-            className={cn("hover:bg-black/20", isSideBarOpen && "bg-black/20")}
+            className={cn("size-8 hover:bg-black/10 dark:hover:bg-white/10")}
           />
-        </span>
+        </div>
       </div>
     </nav>
   );
