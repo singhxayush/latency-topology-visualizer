@@ -1,4 +1,3 @@
-// TYPE DEFINITIONS
 export interface Point {
   name: string;
   type: "bot" | "exchange";
@@ -35,12 +34,6 @@ export interface Bot {
   location: string;
   coords: [number, number];
 }
-
-// export interface LatencyConnection {
-//   from: string;
-//   to: string;
-//   latencyMs: number;
-// }
 
 export interface HistoricalDataPoint {
   timestamp?: number;
