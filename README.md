@@ -31,7 +31,12 @@ A powerful, real-time latency visualization dashboard that presents cloud provid
 
 ## Preview
 
-![screenshot](https://user-images.githubusercontent.com/your-screenshot-link.jpg) <!-- Replace with your image link if you wish -->
+<img width="1440" height="900" alt="Screenshot 2025-07-26 at 2 53 06 AM" src="https://github.com/user-attachments/assets/2b132372-87f0-4fac-8721-e2008fd50b66" />
+
+
+<img width="2872" height="1582" alt="brave_screenshot_exchange-latency-visualizer-dashboard vercel app" src="https://github.com/user-attachments/assets/ff939e5a-33eb-4dd4-b621-36a3b9bc4b44" />
+
+<img width="2878" height="1578" alt="brave_screenshot_exchange-latency-visualizer-dashboard vercel app (1)" src="https://github.com/user-attachments/assets/dda23441-8625-4bcb-9122-1c2e99a60446" />
 
 ---
 
