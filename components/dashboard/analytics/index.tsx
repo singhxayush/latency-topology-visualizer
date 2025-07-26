@@ -150,7 +150,7 @@ const LatencyHistorySimulation = () => {
               }))}
             />
 
-            <ArrowBigRight className="stroke-[1.5] size-4" />
+            <ArrowBigRight className="stroke-[1.5] size-4 fill-zinc-800 dark:fill-white" />
 
             <BotExchangeDropdown
               placeholder="Select Exchange"
