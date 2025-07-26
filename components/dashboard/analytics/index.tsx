@@ -122,6 +122,12 @@ const LatencyHistorySimulation = () => {
     exportToCsv(dataToExport, filename);
   };
 
+  const typeOfLineGraph = () => {
+    if (activeTimeRange === "1H" || activeTimeRange === "24H")
+      return "stepAfter";
+    return "monotone";
+  };
+
   return (
     <div className="w-full flex flex-col gap-2 overscroll-auto">
       {/* Header */}
@@ -211,7 +217,7 @@ const LatencyHistorySimulation = () => {
                   />
                   <Tooltip content={<CustomTooltip />} />
                   <Line
-                    type="stepAfter"
+                    type={typeOfLineGraph()}
                     dataKey="latencyMs"
                     name="Latency"
                     stroke="#a3e635"
