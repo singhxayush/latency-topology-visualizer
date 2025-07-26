@@ -36,24 +36,6 @@ A powerful, real-time latency visualization dashboard that presents cloud provid
 
 ---
 
-## Tech Stack
-
-| Technology          | Description                             |
-| ------------------- | --------------------------------------- |
-| **Next.js 15**      | React framework for building the UI     |
-| **Tailwind CSS**    | Utility-first styling framework         |
-| **react-globe.gl**  | 3D globe rendering and arcs             |
-| **Recharts**        | Charts for analytics                    |
-| **Jotai**           | State management (minimal + scalable)   |
-| **React Hook Form** | Form handling and validation            |
-| **Zod**             | Schema-based form validation            |
-| **ShadCN UI**       | Accessible components using Radix UI    |
-| **Date-fns**        | Date formatting and range handling      |
-| **XLSX**            | Support for export/import (coming soon) |
-| **Sonner**          | Beautiful toast notifications           |
-
----
-
 ## How to Run Locally
 
 ### 1. Clone the Repository
@@ -104,16 +86,9 @@ The app will be running at: [http://localhost:3000](http://localhost:3000)
 
 | Library                  | Purpose                             |
 | ------------------------ | ----------------------------------- |
-| `next`                   | Core framework                      |
 | `react-globe.gl`         | 3D globe rendering                  |
 | `recharts`               | Line charts + analytics             |
 | `jotai`                  | Lightweight React state             |
-| `react-hook-form`        | Form state management               |
-| `zod`                    | Form schema validation              |
-| `shadcn/ui`              | Beautiful, accessible UI components |
-| `clsx`, `tailwind-merge` | Utility for conditional classes     |
-| `sonner`                 | Toast notifications                 |
-| `date-fns`               | Date formatting and manipulation    |
 | `xlsx`                   | Spreadsheet import/export support   |
 
 <!-- ## License
