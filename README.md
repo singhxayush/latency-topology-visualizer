@@ -13,8 +13,8 @@ A powerful, real-time latency visualization dashboard that presents cloud provid
 
 ## Links
 
-- ** Live Demo**: [exchange-latency-visualizer-dashboard.vercel.app](https://exchange-latency-visualizer-dashboard.vercel.app/)
-- ** Video Walkthrough**: [YouTube Demo](https://www.youtube.com/watch?v=mq5Xte48zFA)
+- ** Live Demo** : [exchange-latency-visualizer-dashboard.vercel.app](https://exchange-latency-visualizer-dashboard.vercel.app/)
+- ** Video Walkthrough** : [YouTube Demo](https://www.youtube.com/watch?v=mq5Xte48zFA)
 
 ---
 
